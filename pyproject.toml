@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fettuccine"
-version = "0.1.1"
+version = "0.1.2"
 description = "Project and workflow management library"
 authors = [{ name = "Rui Vieira", email = "ruidevieira@googlemail.com" }]
 license = { text = "Apache License Version 2.0" }
