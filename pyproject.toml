@@ -15,7 +15,8 @@ classifiers = [
 ]
 keywords = ["git", "projects", "workflow"]
 dependencies = [
-    "pygit2==1.12.2"
+    "pygit2==1.12.2",
+    "semver==3.0.1"
 ]
 requires-python = ">=3.8"
 urls = { Project-URL = "https://github.com/ruivieira/fettuccine" }
