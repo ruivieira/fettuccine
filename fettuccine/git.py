@@ -56,6 +56,7 @@ class Branches:
             new_branch_name = pattern.replace("$version", str(new_version))
 
         self.create_branch(new_branch_name)
+        return new_branch_name
 
     def create_major_branch(self, pattern):
 
@@ -69,6 +70,7 @@ class Branches:
             new_branch_name = pattern.replace("$version", str(new_version))
 
         self.create_branch(new_branch_name)
+        return new_branch_name
 
     def create_patch_branch(self, pattern):
 
@@ -82,3 +84,4 @@ class Branches:
             new_branch_name = pattern.replace("$version", str(new_version))
 
         self.create_branch(new_branch_name)
+        return new_branch_name
