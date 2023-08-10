@@ -1,5 +1,5 @@
 import pytest
-from linguine.git import Git
+from fettuccine.git import Git
 
 def test_git():
     g = Git(".")

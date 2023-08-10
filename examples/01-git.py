@@ -1,4 +1,4 @@
-from linguine.git import Git
+from fettuccine.git import Git
 
 proj = Git(".")
 print(proj._repo.status())
