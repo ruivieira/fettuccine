@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linguine"
+version = "0.1.0"
+description = "Project and workflow management library"
+authors = [{ name = "Rui Vieira", email = "ruidevieira@googlemail.com" }]
+license = { text = "Apache License Version 2.0" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["git", "projects", "workflow"]
+dependencies = [
+    "pygit2==1.12.2"
+]
+requires-python = ">=3.8"
+
+
+[project.optional-dependencies]
+dev = ["pytest==6.2.2"]
