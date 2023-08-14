@@ -16,6 +16,24 @@ class Git:
         self._repo = pygit2.Repository(repo_path)
         self.branches = Branches(self)
 
+    def has_changes(self) -> bool:
+        """Check if there are any changes in the repository.
+
+        Returns:
+            bool: True if there are changes, False otherwise.
+        """
+        # Check the status of the files
+        status = self._repo.status()
+
+        # Iterate through the status to see if there are any changes
+        has_changes = False
+        for filepath, flags in status.items():
+            # Check if the file is untracked, modified, or staged
+            if flags != pygit2.GIT_STATUS_CURRENT:
+                has_changes = True
+                break
+
+        return has_changes
 
 
 class Branches:
