@@ -58,10 +58,11 @@ class Branches:
 
         matching_branches = [branch for branch in self._git._repo.branches.local if pattern_regex.match(branch)]
 
-        versions = [semver.Version.parse(branch_match.group(1)) for branch in matching_branches if (branch_match := pattern_regex.match(branch))]
+        versions = [semver.Version.parse(branch_match.group(1)) for branch in matching_branches if
+                    (branch_match := pattern_regex.match(branch))]
         latest_version = max(versions) if versions else None
         return latest_version
-    
+
     def create_minor_branch(self, pattern):
 
         latest_version = self._get_latest_version(pattern)
@@ -103,3 +104,15 @@ class Branches:
 
         self.create_branch(new_branch_name)
         return new_branch_name
+
+    def checkout(self, name: str):
+        """Checkout the branch with the given name."""
+        # Check if the branch exists
+        if name in self._git._repo.branches:
+            # Get the branch reference
+            branch_ref = self._git._repo.branches[name]
+
+            # Check out the branch (this will update the HEAD and the working directory)
+            self._git._repo.checkout(branch_ref)
+        else:
+            logging.error(f"Branch '{name}' does not exist.")
